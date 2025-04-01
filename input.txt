@@ -1,10 +1,7 @@
-2
-3
-Fred Barney
-Barney Betty
-Betty Wilma
-4
-Fred Barney
-Betty Wilma
-Barney Betty
-Fred Wilma
+6 4
+0100
+1110
+1000
+0000
+0111
+0000
