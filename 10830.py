@@ -1,4 +1,3 @@
-import math
 from sys import stdin as s
 s = open("input.txt", "r")
 N, B = map(int, s.readline().split())
@@ -14,18 +13,17 @@ def multiplication(m1, m2):
         for j in range(N):
             for k in range(N):
                 output[i][j] += m1[i][k] * m2[k][j]
+            output[i][j] %= 1000
     return output
 
 def recursive(count):
     if count == 1: return matrix
     elif count == 2: return multiplication(matrix, matrix)
 
-    unit = int(math.sqrt(count))
-    output = multiplication(recursive(unit), recursive(unit))
-
-    rest = count - unit - unit
-    if rest > 0:
-        output = multiplication(output, recursive(rest))
+    half = recursive(count//2)
+    output = multiplication(half, half)
+    if count % 2 == 1:
+        output = multiplication(output, matrix)
     
     return output
 

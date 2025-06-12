@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10**6)
 from sys import stdin as s
 s = open("input.txt", "r")
 nums = [int(row.strip()) for row in s.readlines()]

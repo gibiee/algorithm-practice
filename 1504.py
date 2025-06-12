@@ -20,7 +20,7 @@ def dijkstra(start_node):
         dist, node = heapq.heappop(hq)
         if distance[node] < dist: continue
     
-        for next_node, _dist in graph[node]:
+        for next_node, _dist in graph.get(node, []):
             next_dist = dist + _dist
             if distance[next_node] > next_dist:
                 distance[next_node] = next_dist
@@ -28,7 +28,10 @@ def dijkstra(start_node):
 
     return distance
 
-distance1 = dijkstra(1)
-distance2 = dijkstra(V1)
-distance3 = dijkstra(V2)
-print(distance1[V1] + distance2[V2] + distance3[-1])
+distance0 = dijkstra(1)
+distance1 = dijkstra(V1)
+distance2 = dijkstra(V2)
+answer1 = distance0[V1] + distance1[V2] + distance2[-1]
+answer2 = distance0[V2] + distance2[V1] + distance1[-1]
+answer = min(answer1, answer2)
+print(answer) if answer is not float('inf') else print(-1)

@@ -11,3 +11,9 @@ N = int(s.readline().strip())
 N, M = map(int, s.readline().split())
 nums = list(map(int, s.readline().split()))
 ```
+
+### RecursionError 발생하는 경우
+```py
+import sys
+sys.setrecursionlimit(10**6)
+```
